@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"mybatis-3-mapper.dtd">
+
+<mapper namespace="ssm.dao.UserDao">
+  
+	<select id="get" parameterType="int" resultType="user">
+		select * from testuser where aid = #{value}
+	</select>
+
+	<select id="getAll"  resultType="user">
+		select * from testuser
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		delete from testuser where aid = #{aid}
+	</delete>
+	
+	<update id="update" parameterType="user">
+		update testuser set username = #{username},
+						birthday = #{birthday},
+						sex      = #{sex},
+						address  = #{address}
+		where aid = #{aid}
+	</update>
+	
+	<insert id="insert" parameterType="user">
+		insert into testuser values(null,#{username},#{birthday},#{sex},#{address})
+	</insert>
+	
+</mapper>
